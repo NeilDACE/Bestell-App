@@ -1,0 +1,7 @@
+.basket {
+    width: 100%;
+    height: 400px;
+    background-color: burlywood;
+    position: sticky;
+    top: 0;
+}
