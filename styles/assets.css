@@ -28,9 +28,14 @@
     object-fit: cover;
 }
 .burger-restaurant-logo {
-   margin-top: 90px;
+   margin-top: 20vh;
+   transform: translateY(-95px);
+}
 
-    
+.burger-section-img {
+    width: 100%;
+    height: 10vh;
+    object-fit: cover;
 }
 
 .burger-restaurant-logo-container {
@@ -39,4 +44,5 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
 }

@@ -1,6 +1,6 @@
 body {
   width: 100%;
-  
+
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -14,7 +14,7 @@ header {
 }
 
 .header-container {
-  max-width: 1440px;
+  max-width: 1920px;
   width: 100vw;
   display: flex;
   justify-content: space-between;
@@ -23,9 +23,38 @@ header {
 
 main {
   min-height: 80vh;
+  display: flex;
+  justify-content: center;
+}
+
+nav {
+  z-index: 2;
 }
 
 footer {
   height: 10vh;
   background-color: rgb(255, 128, 0);
+  display: flex;
+  justify-content: center;
+}
+
+.footer-container {
+  max-width: 1920px;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+h2 {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid rgb(187 187 187 / 45%);
+}
+
+h3 {
+  margin-block-start: 0;
+  margin-block-end: 0;
 }

@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: row;
   flex-grow: 1;
+  max-width: 1920px;
 }
 
 .order-content {
@@ -9,24 +10,45 @@
   background-color: whitesmoke;
   display: flex;
   flex-direction: column;
-  gap: 8px;
 }
 
-.order-basket {
-  width: 300px;
-  background-color: blueviolet;
-  flex-grow: 1;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
+
 
 .restaurant-container {
     position: relative;
     display: flex;
     flex-direction: column;
+    padding: 8px;
 
+}
+
+.restaurant-container p {
+  color:rgb(255, 128, 0);
+}
+
+.choice-of-dishes {
+  width: 100%;
+  background-color: rgb(146, 145, 145);
+  padding: 8px;
+  display: flex;
+  gap: 16px;
+}
+
+.choice-of-dishes button {
+  border: none;
+  font-size: 24px;
+  background-color: rgb(146, 145, 145);
+  color: white;
+  padding: 0;
+}
+
+.choice-of-dishes button:hover {
+  background-color: rgba(255, 128, 0, 0.918);
+  border-radius: 10px;
+}
+
+.dishes-container {
+  padding: 8px;
 }
 
 .test-container {
