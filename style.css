@@ -12,18 +12,15 @@
   flex-direction: column;
 }
 
-
-
 .restaurant-container {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    padding: 8px;
-
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
 }
 
 .restaurant-container p {
-  color:rgb(255, 128, 0);
+  color: rgb(255, 128, 0);
 }
 
 .choice-of-dishes {
@@ -54,5 +51,25 @@
 .test-container {
   background-color: brown;
   height: 1500px;
+}
+
+.burger-template {
   
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+  border: 1px solid grey;
+  padding: 4px;
+}
+
+.template-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.template-content {
+}
+
+.template-button-container {
 }
