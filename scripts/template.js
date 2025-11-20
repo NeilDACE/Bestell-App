@@ -6,7 +6,7 @@ function burgerTemplate(burgerIndex) {
                   <p class="price-content" id="burgerPrice${burgerIndex}">Test</p>
                 </div>
                 <div>
-                  <button onclick="">+</button>
+                  <button onclick="addToBasket(${burgerIndex}, burgers)">+</button>
                 </div>
               </div>`;
 }
@@ -19,7 +19,7 @@ function sideDishesTemplate(sideDishesIndex) {
                   <p class="price-content" id="sideDishesPrice${sideDishesIndex}">Test</p>
                 </div>
                 <div>
-                  <button onclick="">+</button>
+                  <button onclick="addToBasket(${sideDishesIndex}, sideDishes)">+</button>
                 </div>
               </div>`;
 }
@@ -32,7 +32,18 @@ function drinksTemplate(drinksIndex) {
                   <p class="price-content" id="drinksPrice${drinksIndex}">Test</p>
                 </div>
                 <div>
-                  <button onclick="">+</button>
+                  <button onclick="addToBasket(${drinksIndex}, drinks)">+</button>
                 </div>
               </div>`;
+}
+
+function basketTemplate(basketIndex) {
+  return `<h4 id="basketTemplateHeadline${basketIndex}">Test</h4>
+              <div class="basket-template">
+                <Button onclick="decrease(${basketIndex})">-</Button>
+                <p><span id="basketNumberOfPortions${basketIndex}"></span>x</p>
+                <Button onclick="increase(${basketIndex})">+</Button>
+                <p class="singleSub" id="basketTotalPrice${basketIndex}"></p>
+                <Button onclick="deleteItemBasket(${basketIndex})">🗑</Button>
+              </div>`
 }

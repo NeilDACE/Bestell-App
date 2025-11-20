@@ -63,24 +63,51 @@
               alt="Burger Section Bild"
             />
             <h3>Burger</h3>
-            <div class="template-container" id="templateContainerBurger">
-            </div>
-            <img class="burger-section-img" src="assets/img/side-dishes-section-img.jpg" alt="Beilagen Section Bild">
+            <div class="template-container" id="templateContainerBurger"></div>
+            <img
+              class="burger-section-img"
+              src="assets/img/side-dishes-section-img.jpg"
+              alt="Beilagen Section Bild"
+            />
             <h3>Beilagen</h3>
-            <div class="template-container" id="templateContainerSideDishes">
-            </div>
-            <img class="burger-section-img" src="assets/img/drinks-section-img.jpg" alt="Getränke Section Bild">
+            <div
+              class="template-container"
+              id="templateContainerSideDishes"
+            ></div>
+            <img
+              class="burger-section-img"
+              src="assets/img/drinks-section-img.jpg"
+              alt="Getränke Section Bild"
+            />
             <h3>Getränke</h3>
-            <div class="template-container" id="templateContainerDrinks">
-            </div>
+            <div class="template-container" id="templateContainerDrinks"></div>
           </div>
         </section>
 
         <section class="order-basket">
           <div class="basket">
             <h2>Warenkorb</h2>
-            <div id="basketContent" class="basket-content">Content</div>
-            <div id="sumContent" class="sum-cost-container">Summe</div>
+            <button id="deliveryButton">Liefern</button>
+            <div id="basketContent" class="basket-content">
+            </div>
+            <div class="sum-cost-container">
+              <table>
+                <tr>
+                  <td>Zwischensumme</td>
+                  <td id="subTotal"></td>
+                </tr>
+                <tr>
+                  <td>Lieferkosten</td>
+                  <td id="deliveryCost">5€</td>
+                </tr>
+                <tr>
+                  <td><strong>Gesamt</strong></td>
+                  <td><strong id="total"></strong></td>
+                </tr>
+              </table>
+            </div>
+            <button onclick="order()">BESTELLEN</button>
+            <p><strong id="orderInfo"></strong></p>
           </div>
         </section>
       </div>
