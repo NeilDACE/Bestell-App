@@ -1,6 +1,6 @@
 .order-basket {
   width: 300px;
-  background-color: whitesmoke;
+  background-color: #FFF9F0;
   flex-grow: 1;
   z-index: 3;
   padding: 8px;
@@ -13,9 +13,9 @@
 .basket {
     width: 100%;
     min-height: 400px;
-    background-color: whitesmoke;
+    background-color: #FFF9F0;
     position: sticky;
-    top: 0;
+    top: 10vh;
     text-align: center;
 }
 

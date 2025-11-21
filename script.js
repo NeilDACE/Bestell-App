@@ -225,7 +225,7 @@ function total() {
 toggleButton.addEventListener("click", function () {
   if (toggleButton.innerText === "Liefern") {
     toggleButton.innerText = "Abholen";
-    document.getElementById("deliveryCost").innerHTML = "kostenlos";
+    document.getElementById("deliveryCost").innerHTML = "-";
     delivery = false;
   } else {
     toggleButton.innerText = "Liefern";
@@ -246,4 +246,8 @@ function order() {
   renderBasket();
   container = document.getElementById("orderInfo");
   container.innerHTML = "Testbestellung wurde vorgenommen !";
+}
+
+function toggleMenu() {
+    document.getElementById("hidden-menu").classList.toggle("closed-menu");
 }

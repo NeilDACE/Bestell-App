@@ -14,6 +14,9 @@
       href="assets/icons/Favicon/favicon.ico"
       type="image/x-icon"
     />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
   </head>
   <body onload="render()">
     <header>
@@ -23,13 +26,18 @@
           src="assets/img/Logo/Bestell App- Logo.svg"
           alt="Bestell App Logo"
         />
-        <button class="burger-menu-button">
+        <button onclick="toggleMenu()" class="burger-menu-button">
           <img
             class="img-burger-menu"
             src="assets/img/burger-menu.png"
             alt="burger menu icon"
           />
         </button>
+      </div>
+      <div id="hidden-menu" class="hidden-menu closed-menu">
+        <li><a href="./index.html">Startseite</a></li>
+        <li><a href="#">Impressum</a></li>
+        <li><a href="#">Datenschutz</a></li>
       </div>
     </header>
     <main>
@@ -44,28 +52,34 @@
             <div class="burger-restaurant-logo-container">
               <img
                 class="burger-restaurant-logo"
-                src="assets/img/Logo/burger-restaurant-logo.png"
+                src="assets/img/burger-restaurant-logo.png"
                 alt="Burger Restaurant Logo"
               />
             </div>
+            <div class="description">
             <h1>BIG N’TASTY</h1>
-            <p>Bewertung (4,5 von 5 Sternen)</p>
+            <p>„Big n Tasty – wo großer Geschmack auf frische Qualität trifft! Bei uns bekommst du saftige Burger, knusprige Beilagen und hausgemachte Saucen, heiß und frisch bis zu dir geliefert. Einfach bestellen, genießen und den echten Big-n-Tasty-Moment erleben!“</p>
+            <p>Liefern oder Abholen entscheiden Sie !</p>
+            <p class="restaurant-container-evaluation">Bewertung (4,5 von 5 Sternen)</p>
+            </div>
           </div>
           <nav class="choice-of-dishes">
-            <button>Burger</button>
-            <button>Beilagen</button>
-            <button>Getränke</button>
+            <button><a href="#burgerSection">Burger</a></button>
+            <button><a href="#sideDishesSection">Beilagen</a></button>
+            <button><a href="#drinksSection">Getränke</a></button>
           </nav>
           <div class="dishes-container">
             <img
-              class="burger-section-img"
+              id="burgerSection"
+              class="section-img"
               src="assets/img/burger-section.jpg"
               alt="Burger Section Bild"
             />
             <h3>Burger</h3>
             <div class="template-container" id="templateContainerBurger"></div>
             <img
-              class="burger-section-img"
+              id="sideDishesSection"
+              class="section-img"
               src="assets/img/side-dishes-section-img.jpg"
               alt="Beilagen Section Bild"
             />
@@ -75,7 +89,8 @@
               id="templateContainerSideDishes"
             ></div>
             <img
-              class="burger-section-img"
+              id="drinksSection"
+              class="section-img"
               src="assets/img/drinks-section-img.jpg"
               alt="Getränke Section Bild"
             />
@@ -87,7 +102,7 @@
         <section class="order-basket">
           <div class="basket">
             <h2>Warenkorb</h2>
-            <button id="deliveryButton">Liefern</button>
+            <button class="delivery-button" id="deliveryButton">Liefern</button>
             <div id="basketContent" class="basket-content">
             </div>
             <div class="sum-cost-container">
@@ -106,7 +121,7 @@
                 </tr>
               </table>
             </div>
-            <button onclick="order()">BESTELLEN</button>
+            <button class="order-button" onclick="order()">BESTELLEN</button>
             <p><strong id="orderInfo"></strong></p>
           </div>
         </section>

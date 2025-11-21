@@ -16,16 +16,20 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 8px;
 }
 
-.restaurant-container p {
-  color: rgb(255, 128, 0);
+.description {
+  padding: 8px;
+  color:black;
+}
+
+.restaurant-container-evaluation {
+  color: rgba(255, 128, 0, 0.918);
 }
 
 .choice-of-dishes {
   width: 100%;
-  background-color: rgb(146, 145, 145);
+  background-color: rgb(255, 128, 0);
   padding: 8px;
   display: flex;
   gap: 16px;
@@ -34,8 +38,7 @@
 .choice-of-dishes button {
   border: none;
   font-size: 24px;
-  background-color: rgb(146, 145, 145);
-  color: white;
+  background-color: rgb(255, 128, 0);
   padding: 0;
 }
 
@@ -72,4 +75,36 @@
 }
 
 .template-button-container {
+}
+
+.hidden-menu {
+  background-color:  rgb(255, 128, 0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  z-index: 4;
+  width: 180px;
+  height: 100px;
+  position: fixed;
+  top: 10vh;
+  right: 0px;
+  transform: translateX(0%);
+  transition: 0.5s;
+  font-size: large;
+  border-bottom-left-radius: 4px;
+  
+  
+}
+
+.hidden-menu li::marker {
+  color: white;
+}
+
+.closed-menu {
+  transform: translateX(100%);
+  transition: 0.5s;
+  
 }
