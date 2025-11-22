@@ -1,3 +1,8 @@
+@keyframes rotationY {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+}
+
 .img-logo {
   width: 180px;
   height: 180px;
@@ -31,10 +36,11 @@
 }
 .burger-restaurant-logo {
     width: 120px;
-  margin-top: 20vh;
-  transform: translateY(-15px);
+  margin-top: 19vh;
   background-color: white;
   border-radius: 50%;
+  animation: rotationY 4s linear infinite;
+  transform-style: preserve-3d;
   
 }
 
@@ -51,6 +57,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  perspective: 1000px;
 }
 
 .delivery-button {
