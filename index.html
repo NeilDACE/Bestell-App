@@ -14,9 +14,10 @@
       href="assets/icons/Favicon/favicon.ico"
       type="image/x-icon"
     />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body onload="render()">
     <header>
@@ -57,10 +58,18 @@
               />
             </div>
             <div class="description">
-            <h1>BIG N’TASTY</h1>
-            <p>„Big n Tasty – wo großer Geschmack auf frische Qualität trifft! Bei uns bekommst du saftige Burger, knusprige Beilagen und hausgemachte Saucen, heiß und frisch bis zu dir geliefert. Einfach bestellen, genießen und den echten Big-n-Tasty-Moment erleben!“</p>
-            <p>Liefern oder Abholen entscheiden Sie !</p>
-            <p class="restaurant-container-evaluation">Bewertung (4,5 von 5 Sternen)</p>
+              <h1>BIG N’TASTY</h1>
+              <p>
+                „Big n Tasty – wo großer Geschmack auf frische Qualität trifft!
+                Bei uns bekommst du saftige Burger, knusprige Beilagen und
+                hausgemachte Saucen, heiß und frisch bis zu dir geliefert.
+                Einfach bestellen, genießen und den echten Big-n-Tasty-Moment
+                erleben!“
+              </p>
+              <p>Liefern oder Abholen entscheiden Sie !</p>
+              <p class="restaurant-container-evaluation">
+                Bewertung (4,5 von 5 Sternen)
+              </p>
             </div>
           </div>
           <nav class="choice-of-dishes">
@@ -75,27 +84,29 @@
               src="assets/img/burger-section.jpg"
               alt="Burger Section Bild"
             />
-            <h3>Burger</h3>
-            <div class="template-container" id="templateContainerBurger"></div>
+
+            <div class="template-container" id="templateContainerBurger">
+              <h3 class="template-headline">Burger</h3>
+            </div>
             <img
               id="sideDishesSection"
               class="section-img"
               src="assets/img/side-dishes-section-img.jpg"
               alt="Beilagen Section Bild"
             />
-            <h3>Beilagen</h3>
-            <div
-              class="template-container"
-              id="templateContainerSideDishes"
-            ></div>
+
+            <div class="template-container" id="templateContainerSideDishes">
+              <h3 class="template-headline">Beilagen</h3>
+            </div>
             <img
               id="drinksSection"
               class="section-img"
               src="assets/img/drinks-section-img.jpg"
               alt="Getränke Section Bild"
             />
-            <h3>Getränke</h3>
-            <div class="template-container" id="templateContainerDrinks"></div>
+            <div class="template-container" id="templateContainerDrinks">
+              <h3 class="template-headline">Getränke</h3>
+            </div>
           </div>
         </section>
 
@@ -103,8 +114,7 @@
           <div class="basket">
             <h2>Warenkorb</h2>
             <button class="delivery-button" id="deliveryButton">Liefern</button>
-            <div id="basketContent" class="basket-content">
-            </div>
+            <div id="basketContent" class="basket-content"></div>
             <div class="sum-cost-container">
               <table>
                 <tr>

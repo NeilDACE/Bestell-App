@@ -67,12 +67,16 @@ a {
   color: black;
 }
 
+a:hover {
+  color: white;
+}
+
 button {
     color: rgb(255, 128, 0);
     font-size: large;
     border: 2px solid rgb(255, 128, 0);
     border-radius: 4px;
-    
+    cursor: pointer;
 }
 
 p {

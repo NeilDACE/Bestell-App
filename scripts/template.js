@@ -1,38 +1,38 @@
 function burgerTemplate(burgerIndex) {
-    return `<div class="burger-template">
+    return `<div onclick="addToBasket(${burgerIndex}, burgers)" class="template">
                 <div class="template-content">
                   <h4 id="burgerName${burgerIndex}">Test</h4>
                   <p class="burger-content" id="burgerContent${burgerIndex}">Test</p>
                   <p class="price-content" id="burgerPrice${burgerIndex}">Test</p>
                 </div>
                 <div>
-                  <button onclick="addToBasket(${burgerIndex}, burgers)">+</button>
+                  <button>+</button>
                 </div>
               </div>`;
 }
 
 function sideDishesTemplate(sideDishesIndex) {
-    return `<div class="burger-template">
+    return `<div onclick="addToBasket(${sideDishesIndex}, sideDishes)" class="template">
                 <div class="template-content">
                   <h4 id="sideDishesName${sideDishesIndex}">Test</h4>
                   <p class="burger-content" id="sideDishesContent${sideDishesIndex}">Test</p>
                   <p class="price-content" id="sideDishesPrice${sideDishesIndex}">Test</p>
                 </div>
                 <div>
-                  <button onclick="addToBasket(${sideDishesIndex}, sideDishes)">+</button>
+                  <button>+</button>
                 </div>
               </div>`;
 }
 
 function drinksTemplate(drinksIndex) {
-    return `<div class="burger-template">
+    return `<div onclick="addToBasket(${drinksIndex}, drinks)" class="template">
                 <div class="template-content">
                   <h4 id="drinksName${drinksIndex}">Test</h4>
                   <p class="burger-content" id="drinksContent${drinksIndex}">Test</p>
                   <p class="price-content" id="drinksPrice${drinksIndex}">Test</p>
                 </div>
                 <div>
-                  <button onclick="addToBasket(${drinksIndex}, drinks)">+</button>
+                  <button>+</button>
                 </div>
               </div>`;
 }

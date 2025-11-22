@@ -24,6 +24,8 @@ function render() {
   renderBurger();
   renderSideDishes();
   renderDrinks();
+  getFromLocalStorage();
+  renderBasket();
 }
 
 // =======================
@@ -91,7 +93,6 @@ function renderBasket() {
     loadContentTemplate(basketIndex, "basketNumberOfPortions", "qty");
     loadPrice(basketIndex, "basketTotalPrice");
   }
-
   subTotal();
   total();
   document.getElementById("orderInfo").innerHTML = "";
@@ -155,22 +156,26 @@ function addToBasket(i, arrayName) {
   } else {
     basket.push(item);
   }
+  saveToLocalStorage();
   renderBasket();
 }
 
 // Increases quantity of a basket item
 function increase(basketIndex) {
   basket[basketIndex].qty += 1;
+  saveToLocalStorage();
   renderBasket();
 }
 
 // Decreases quantity or removes item if qty becomes 0
 function decrease(basketIndex) {
   basket[basketIndex].qty -= 1;
+  saveToLocalStorage();
   renderBasket();
   if (basket[basketIndex].qty <= 0) {
     basket[basketIndex].qty += 1;
     basket.splice(basketIndex, 1);
+    saveToLocalStorage();
     renderBasket();
   }
 }
@@ -179,6 +184,7 @@ function decrease(basketIndex) {
 function deleteItemBasket(basketIndex) {
   basket[basketIndex].qty = 1;
   basket.splice(basketIndex, 1);
+  saveToLocalStorage();
   renderBasket();
 }
 
@@ -243,11 +249,35 @@ toggleButton.addEventListener("click", function () {
 // Clears basket and shows test order info
 function order() {
   basket = [];
+  saveToLocalStorage();
   renderBasket();
   container = document.getElementById("orderInfo");
   container.innerHTML = "Testbestellung wurde vorgenommen !";
 }
 
+// =======================
+// Toggle menu
+// =======================
+
+// Open and close the burger menu
 function toggleMenu() {
     document.getElementById("hidden-menu").classList.toggle("closed-menu");
+}
+
+// =======================
+// SaveLS
+// =======================
+
+// Safe to Local Storage and load from Local Storage
+function saveToLocalStorage() {
+  localStorage.setItem("basket", JSON.stringify(basket));
+}
+
+function getFromLocalStorage() {
+  
+  let basketStored = JSON.parse(localStorage.getItem("basket"));
+  if (basketStored === null) {
+    return;
+  }
+  basket = basketStored;
 }
