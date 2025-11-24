@@ -42,10 +42,6 @@ main {
   justify-content: center;
 }
 
-nav {
-  z-index: 2;
-}
-
 footer {
   height: 10vh;
   background-color: var(--primary-color1);
