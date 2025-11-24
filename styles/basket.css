@@ -58,4 +58,8 @@
   .order-basket {
     display: none;
   }
+  .basket-content {
+  max-height: 300px;
+  overflow: auto;
+}
 }
