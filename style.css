@@ -1,3 +1,9 @@
+:root {
+  --primary-color1: rgb(255, 128, 0);
+  --primary-color2: rgb(245, 245, 245);
+  --primary-color3: rgb(255, 249, 240);
+}
+
 .order-content-wrapper {
   display: flex;
   flex-direction: row;
@@ -7,7 +13,7 @@
 
 .order-content {
   width: calc(100% - 300px);
-  background-color: whitesmoke;
+  background-color: var(--primary-color2);
   display: flex;
   flex-direction: column;
 }
@@ -24,40 +30,32 @@
 }
 
 .restaurant-container-evaluation {
-  color: rgba(255, 128, 0, 0.918);
+  color: black;
 }
 
 .choice-of-dishes {
-  background-color: rgb(255, 128, 0);
+  background-color: var(--primary-color1);
   padding: 8px;
   display: flex;
   gap: 16px;
 }
 
-.choice-of-dishes button {
-  border: none;
-  font-size: 24px;
-  background-color: rgb(255, 128, 0);
-  padding: 0;
-}
-
 .choice-of-dishes button a:hover {
-  background-color: rgba(255, 128, 0, 0.918);
   color: white;
 }
 
 .template {
-  
   display: flex;
   justify-content: space-between;
   flex-grow: 1;
-  border: 1px solid rgb(255, 128, 0);
+  border: 1px solid var(--primary-color1);
   border-radius: 4px;
   padding: 4px;
 }
 
 .template:hover {
   cursor: pointer;
+  background-color: rgba(255, 128, 0, 0.5);
 }
 
 .template-container {
@@ -73,25 +71,23 @@
 }
 
 .hidden-menu {
-  background-color:  rgb(255, 128, 0);
+  background-color:  var(--primary-color1);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 210px;
+  height: 150px;
+  gap: 8px;
+  top: 10vh;
+  right: 0;
+  z-index: 4;
+  position: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  z-index: 4;
-  width: 180px;
-  height: 100px;
-  position: fixed;
-  top: 10vh;
-  right: 0px;
   transform: translateX(0%);
   transition: 0.5s;
   font-size: large;
   border-bottom-left-radius: 4px;
-  
-  
 }
 
 .hidden-menu li::marker {
@@ -101,5 +97,20 @@
 .closed-menu {
   transform: translateX(100%);
   transition: 0.5s;
-  
+}
+
+.show-content {
+  display: flex !important;
+}
+
+@media (max-width: 850px) {
+  .description {
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 650px) {
+  .order-content {
+    width: 100%;
+  }
 }

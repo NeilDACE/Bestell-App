@@ -1,6 +1,12 @@
+:root {
+  --primary-color1: rgb(255, 128, 0);
+  --primary-color2: rgb(245, 245, 245);
+  --primary-color3: rgb(255, 249, 240);
+}
+
 .order-basket {
   width: 300px;
-  background-color: #FFF9F0;
+  background-color: var(--primary-color3);
   flex-grow: 1;
   z-index: 3;
   padding: 8px;
@@ -13,7 +19,7 @@
 .basket {
     width: 100%;
     min-height: 400px;
-    background-color: #FFF9F0;
+    background-color: var(--primary-color3);
     position: sticky;
     top: 10vh;
     text-align: center;
@@ -42,4 +48,10 @@
 .sum-cost-container table {
   width: 100%;
   text-align: start;
+}
+
+@media (max-width: 650px) {
+  .order-basket {
+    display: none;
+  }
 }

@@ -1,5 +1,12 @@
+:root {
+  --primary-color1: rgb(255, 128, 0);
+  --primary-color2: rgb(245, 245, 245);
+  --primary-color3: rgb(255, 249, 240);
+}
+
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -13,7 +20,7 @@ body {
 
 header {
   height: 10vh;
-  background-color: rgb(255, 128, 0);
+  background-color: var(--primary-color1);
   display: flex;
   justify-content: center;
   position: sticky;
@@ -41,9 +48,10 @@ nav {
 
 footer {
   height: 10vh;
-  background-color: rgb(255, 128, 0);
+  background-color: var(--primary-color1);
   display: flex;
   justify-content: center;
+  text-align: center;
 }
 
 .footer-container {
@@ -72,9 +80,10 @@ a:hover {
 }
 
 button {
-    color: rgb(255, 128, 0);
+    color: var(--primary-color1);
+    font-family: "Inter", sans-serif;
     font-size: large;
-    border: 2px solid rgb(255, 128, 0);
+    border: 2px solid var(--primary-color1);
     border-radius: 4px;
     cursor: pointer;
 }

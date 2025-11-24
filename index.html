@@ -14,10 +14,6 @@
       href="assets/icons/Favicon/favicon.ico"
       type="image/x-icon"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
   </head>
   <body onload="render()">
     <header>
@@ -31,24 +27,26 @@
           <img
             class="img-burger-menu"
             src="assets/img/burger-menu.png"
-            alt="burger menu icon"
+            alt="burger Menu Symbol"
           />
         </button>
       </div>
       <div id="hidden-menu" class="hidden-menu closed-menu">
         <li><a href="./index.html">Startseite</a></li>
+        <li><a href="#">Lieferbedingungen</a></li>
+        <li><a href="#">AGB's</a></li>
         <li><a href="#">Impressum</a></li>
         <li><a href="#">Datenschutz</a></li>
       </div>
     </header>
     <main>
       <div class="order-content-wrapper">
-        <section class="order-content">
+        <section class="order-content" id="orderContainer">
           <div class="restaurant-container">
             <img
               class="burger-restaurant-background"
               src="assets/img/burger-restaurant-background.jpg"
-              alt="Burger Restaurant Img"
+              alt="Burger Restaurant Hauptbild"
             />
             <div class="burger-restaurant-logo-container">
               <img
@@ -67,8 +65,8 @@
                 erleben!“
               </p>
               <p>Liefern oder Abholen entscheiden Sie !</p>
-              <p class="restaurant-container-evaluation">
-                Bewertung (4,5 von 5 Sternen)
+              <p>
+               <strong class="restaurant-container-evaluation">Bewertung (4,5 von 5 Sternen)</strong> 
               </p>
             </div>
           </div>
@@ -82,7 +80,7 @@
               id="burgerSection"
               class="section-img"
               src="assets/img/burger-section.jpg"
-              alt="Burger Section Bild"
+              alt="Burger Sektion Bild"
             />
 
             <div class="template-container" id="templateContainerBurger">
@@ -92,7 +90,7 @@
               id="sideDishesSection"
               class="section-img"
               src="assets/img/side-dishes-section-img.jpg"
-              alt="Beilagen Section Bild"
+              alt="Beilagen Sektion Bild"
             />
 
             <div class="template-container" id="templateContainerSideDishes">
@@ -102,21 +100,22 @@
               id="drinksSection"
               class="section-img"
               src="assets/img/drinks-section-img.jpg"
-              alt="Getränke Section Bild"
+              alt="Getränke Sektion Bild"
             />
             <div class="template-container" id="templateContainerDrinks">
               <h3 class="template-headline">Getränke</h3>
             </div>
           </div>
+          <button class="basket-mobile-button" onclick="toggleMobileBasket()">Warenkorb</button>
         </section>
 
-        <section class="order-basket">
+        <section class="order-basket" id="basketContainer">
           <div class="basket">
             <h2>Warenkorb</h2>
             <button class="delivery-button" id="deliveryButton">Liefern</button>
             <div id="basketContent" class="basket-content"></div>
             <div class="sum-cost-container">
-              <table>
+              <table role="presentation">
                 <tr>
                   <td>Zwischensumme</td>
                   <td id="subTotal"></td>
@@ -134,6 +133,7 @@
             <button class="order-button" onclick="order()">BESTELLEN</button>
             <p><strong id="orderInfo"></strong></p>
           </div>
+          <button class="basket-mobile-button" onclick="toggleMobileBasket()">Hauptseite</button>
         </section>
       </div>
     </main>

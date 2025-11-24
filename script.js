@@ -241,7 +241,6 @@ toggleButton.addEventListener("click", function () {
   renderBasket();
 });
 
-
 // =======================
 // Order
 // =======================
@@ -280,4 +279,16 @@ function getFromLocalStorage() {
     return;
   }
   basket = basketStored;
+}
+
+// =======================
+// Toggle mobile basket
+// =======================
+
+// open and close from mobile basket and main page
+function toggleMobileBasket() {
+  orderContent = document.getElementById("orderContainer");
+  basketContent = document.getElementById("basketContainer");
+  orderContent.classList.toggle('hide-content');
+  basketContent.classList.toggle('show-content');
 }

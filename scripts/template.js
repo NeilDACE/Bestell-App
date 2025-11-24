@@ -1,5 +1,5 @@
 function burgerTemplate(burgerIndex) {
-    return `<div onclick="addToBasket(${burgerIndex}, burgers)" class="template">
+    return `<div role="button" onclick="addToBasket(${burgerIndex}, burgers)" class="template">
                 <div class="template-content">
                   <h4 id="burgerName${burgerIndex}">Test</h4>
                   <p class="burger-content" id="burgerContent${burgerIndex}">Test</p>
@@ -12,7 +12,7 @@ function burgerTemplate(burgerIndex) {
 }
 
 function sideDishesTemplate(sideDishesIndex) {
-    return `<div onclick="addToBasket(${sideDishesIndex}, sideDishes)" class="template">
+    return `<div role="button" onclick="addToBasket(${sideDishesIndex}, sideDishes)" class="template">
                 <div class="template-content">
                   <h4 id="sideDishesName${sideDishesIndex}">Test</h4>
                   <p class="burger-content" id="sideDishesContent${sideDishesIndex}">Test</p>
@@ -25,7 +25,7 @@ function sideDishesTemplate(sideDishesIndex) {
 }
 
 function drinksTemplate(drinksIndex) {
-    return `<div onclick="addToBasket(${drinksIndex}, drinks)" class="template">
+    return `<div role="button" onclick="addToBasket(${drinksIndex}, drinks)" class="template">
                 <div class="template-content">
                   <h4 id="drinksName${drinksIndex}">Test</h4>
                   <p class="burger-content" id="drinksContent${drinksIndex}">Test</p>
