@@ -19,10 +19,10 @@ const formatter = new Intl.NumberFormat("de-DE", {
 // =======================
 
 // Renders all product categories
-function render() {
-  renderBurger();
-  renderSideDishes();
-  renderDrinks();
+function init() {
+  renderdishes(burgersKey, burgers, "templateContainerBurger");
+  renderdishes(sideDishesKey, sideDishes, "templateContainerSideDishes");
+  renderdishes(drinksKey, drinks, "templateContainerDrinks");
   getFromLocalStorage();
   renderBasket();
 }
@@ -31,48 +31,17 @@ function render() {
 // Render Product Categories
 // =======================
 
-// Renders all burgers
-function renderBurger() {
-  for (
-    let burgerIndex = 0;
-    burgerIndex < Object.keys(burgers).length;
-    burgerIndex++
-  ) {
-    document.getElementById("templateContainerBurger").innerHTML +=
-      burgerTemplate(burgerIndex);
-    loadContentTemplate(burgerIndex, "burgerName", "name");
-    loadContentTemplate(burgerIndex, "burgerContent", "description");
-    loadPrice(burgerIndex, "burgerPrice");
-  }
-}
+// Renders all dishes
 
-// Renders all side dishes
-function renderSideDishes() {
-  for (
-    let sideDishesIndex = 0;
-    sideDishesIndex < Object.keys(sideDishes).length;
-    sideDishesIndex++
-  ) {
-    document.getElementById("templateContainerSideDishes").innerHTML +=
-      sideDishesTemplate(sideDishesIndex);
-    loadContentTemplate(sideDishesIndex, "sideDishesName", "name");
-    loadContentTemplate(sideDishesIndex, "sideDishesContent", "description");
-    loadPrice(sideDishesIndex, "sideDishesPrice");
-  }
-}
-
-// Renders all drinks
-function renderDrinks() {
-  for (
-    let drinksIndex = 0;
-    drinksIndex < Object.keys(drinks).length;
-    drinksIndex++
-  ) {
-    document.getElementById("templateContainerDrinks").innerHTML +=
-      drinksTemplate(drinksIndex);
-    loadContentTemplate(drinksIndex, "drinksName", "name");
-    loadContentTemplate(drinksIndex, "drinksContent", "description");
-    loadPrice(drinksIndex, "drinksPrice");
+function renderdishes(key, dish, templateContainer) {
+  for (let index = 0; index < Object.keys(dish).length; index++) {
+    document.getElementById(templateContainer).innerHTML += dishTemplate(
+      index,
+      key
+    );
+    loadContentTemplate(index, key, "name", "name");
+    loadContentTemplate(index, key, "content", "description");
+    loadPrice(index, key, "price");
   }
 }
 
@@ -87,9 +56,19 @@ function renderBasket() {
 
   for (let basketIndex = 0; basketIndex < basket.length; basketIndex++) {
     basketContainer.innerHTML += basketTemplate(basketIndex);
-    loadContentTemplate(basketIndex, "basketTemplateHeadline", "name");
-    loadContentTemplate(basketIndex, "basketNumberOfPortions", "qty");
-    loadPrice(basketIndex, "basketTotalPrice");
+    loadContentTemplate(
+      basketIndex,
+      basketKey,
+      "basketTemplateHeadline",
+      "name"
+    );
+    loadContentTemplate(
+      basketIndex,
+      basketKey,
+      "basketNumberOfPortions",
+      "qty"
+    );
+    loadPrice(basketIndex, basketKey, "basketTotalPrice");
   }
   subTotal();
   total();
@@ -101,44 +80,42 @@ function renderBasket() {
 // =======================
 
 // Loads text content (name, description, qty) depending on category
-function loadContentTemplate(i, contentNameId, arr) {
-  let content = document.getElementById(contentNameId + i);
-  if (contentNameId.includes("burger")) {
-    content.innerHTML = burgers[i][arr];
+function loadContentTemplate(index, key, contentNameId, arr) {
+  let content = document.getElementById(contentNameId + key + index);
+  if (key === "burger") {
+    content.innerHTML = burgers[index][arr];
   }
-  if (contentNameId.includes("sideDishes")) {
-    content.innerHTML = sideDishes[i][arr];
+  if (key === "sideDish") {
+    content.innerHTML = sideDishes[index][arr];
   }
-  if (contentNameId.includes("drinks")) {
-    content.innerHTML = drinks[i][arr];
+  if (key === "drink") {
+    content.innerHTML = drinks[index][arr];
   }
-  if (contentNameId.includes("basket")) {
-    content.innerHTML = basket[i][arr];
+  if (key === "basket") {
+    content.innerHTML = basket[index][arr];
   }
 }
 
 // Returns formatted price for the given category
-function formattedPrice(i, contentNameId) {
-  if (contentNameId.includes("burger")) {
-    return formatter.format(burgers[i].price);
+function formattedPrice(index, key) {
+  if (key === "burger") {
+    return formatter.format(burgers[index].price);
   }
-  if (contentNameId.includes("sideDishes")) {
-    return formatter.format(sideDishes[i].price);
+  if (key === "sideDish") {
+    return formatter.format(sideDishes[index].price);
   }
-  if (contentNameId.includes("drinks")) {
-    return formatter.format(drinks[i].price);
+  if (key === "drink") {
+    return formatter.format(drinks[index].price);
   }
-  if (contentNameId.includes("basket")) {
-    return formatter.format(basket[i].price * basket[i].qty);
+  if (key === "basket") {
+    return formatter.format(basket[index].price * basket[index].qty);
   }
 }
 
 // Inserts formatted price into DOM
-function loadPrice(i, contentNameId) {
-  document.getElementById(contentNameId + i).innerHTML = formattedPrice(
-    i,
-    contentNameId
-  );
+function loadPrice(index, key, contentNameId) {
+  document.getElementById(contentNameId + key + index).innerHTML =
+    formattedPrice(index, key);
 }
 
 // =======================
@@ -146,36 +123,32 @@ function loadPrice(i, contentNameId) {
 // =======================
 
 // Adds an item to the basket or increases qty if already present
-function addToBasket(i, arrayName) {
-  const item = arrayName[i];
-  const existingItem = basket.find((b) => b.name === item.name);
-
-  if (existingItem) {
-    existingItem.qty += 1;
+function addToBasket(index, key) {
+  const arrays = { burger: burgers, sideDish: sideDishes, drink: drinks };
+  const item = arrays[key][index];
+  const existing = basket.find((b) => b.name === item.name);
+  if (existing) {
+    existing.qty++;
   } else {
-    basket.push({ ...item, qty: 1 }); 
+    basket.push({ ...item, qty: 1 });
   }
-  saveToLocalStorage();
-  renderBasket();
+  saveAndRender();
 }
 
 // Increases quantity of a basket item
 function increase(basketIndex) {
   basket[basketIndex].qty += 1;
-  saveToLocalStorage();
-  renderBasket();
+  saveAndRender();
 }
 
 // Decreases quantity or removes item if qty becomes 0
 function decrease(basketIndex) {
   basket[basketIndex].qty -= 1;
-  saveToLocalStorage();
-  renderBasket();
+  saveAndRender();
   if (basket[basketIndex].qty <= 0) {
     basket[basketIndex].qty += 1;
     basket.splice(basketIndex, 1);
-    saveToLocalStorage();
-    renderBasket();
+    saveAndRender();
   }
 }
 
@@ -183,8 +156,7 @@ function decrease(basketIndex) {
 function deleteItemBasket(basketIndex) {
   basket[basketIndex].qty = 1;
   basket.splice(basketIndex, 1);
-  saveToLocalStorage();
-  renderBasket();
+  saveAndRender();
 }
 
 // =======================
@@ -245,8 +217,7 @@ toggleButton.addEventListener("click", function () {
 // Clears basket and shows test order info
 function order() {
   basket = [];
-  saveToLocalStorage();
-  renderBasket();
+  saveAndRender();
   container = document.getElementById("orderInfo");
   container.innerHTML = "Testbestellung wurde vorgenommen !";
 }
@@ -269,6 +240,11 @@ function saveToLocalStorage() {
   localStorage.setItem("basket", JSON.stringify(basket));
 }
 
+function saveAndRender() {
+  saveToLocalStorage();
+  renderBasket();
+}
+
 function getFromLocalStorage() {
   let basketStored = JSON.parse(localStorage.getItem("basket"));
   if (basketStored === null) {
@@ -285,6 +261,10 @@ function getFromLocalStorage() {
 function toggleMobileBasket() {
   orderContent = document.getElementById("orderContainer");
   basketContent = document.getElementById("basketContainer");
+  footer = document.getElementById("footerId");
+  main = document.getElementById("mainId");
   orderContent.classList.toggle("hide-content");
   basketContent.classList.toggle("show-content");
+  footer.classList.toggle("hide-content");
+  main.classList.toggle("main-basket-size");
 }

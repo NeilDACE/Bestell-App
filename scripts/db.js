@@ -1,4 +1,8 @@
 let basket = [];
+let burgersKey = "burger";
+let sideDishesKey = "sideDish";
+let drinksKey = "drink";
+let basketKey = "basket";
 
 let burgers = [
   {

@@ -42,6 +42,10 @@ main {
   justify-content: center;
 }
 
+.main-basket-size {
+min-height: 90vh;
+}
+
 footer {
   height: 10vh;
   background-color: var(--primary-color1);
