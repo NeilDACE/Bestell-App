@@ -3,7 +3,6 @@
 // =======================
 
 // Basket array and delivery flag
-let basket = [];
 let delivery = true;
 
 // Delivery toggle button reference
@@ -77,7 +76,6 @@ function renderDrinks() {
   }
 }
 
-
 // =======================
 // Render Basket
 // =======================
@@ -144,17 +142,18 @@ function loadPrice(i, contentNameId) {
 }
 
 // =======================
-// Basket Manipulation
+// region Basket Manipulation
 // =======================
 
 // Adds an item to the basket or increases qty if already present
 function addToBasket(i, arrayName) {
   const item = arrayName[i];
-  if (basket.includes(item)) {
-    const existingItem = basket.find((b) => b.name === item.name);
+  const existingItem = basket.find((b) => b.name === item.name);
+
+  if (existingItem) {
     existingItem.qty += 1;
   } else {
-    basket.push(item);
+    basket.push({ ...item, qty: 1 }); 
   }
   saveToLocalStorage();
   renderBasket();
@@ -188,7 +187,6 @@ function deleteItemBasket(basketIndex) {
   renderBasket();
 }
 
-
 // =======================
 // Price Calculation
 // =======================
@@ -221,7 +219,6 @@ function total() {
     container.innerHTML = formatter.format(subPrice("total"));
   }
 }
-
 
 // =======================
 // Delivery Toggle Button
@@ -260,7 +257,7 @@ function order() {
 
 // Open and close the burger menu
 function toggleMenu() {
-    document.getElementById("hidden-menu").classList.toggle("closed-menu");
+  document.getElementById("hidden-menu").classList.toggle("closed-menu");
 }
 
 // =======================
@@ -273,7 +270,6 @@ function saveToLocalStorage() {
 }
 
 function getFromLocalStorage() {
-  
   let basketStored = JSON.parse(localStorage.getItem("basket"));
   if (basketStored === null) {
     return;
@@ -289,6 +285,6 @@ function getFromLocalStorage() {
 function toggleMobileBasket() {
   orderContent = document.getElementById("orderContainer");
   basketContent = document.getElementById("basketContainer");
-  orderContent.classList.toggle('hide-content');
-  basketContent.classList.toggle('show-content');
+  orderContent.classList.toggle("hide-content");
+  basketContent.classList.toggle("show-content");
 }

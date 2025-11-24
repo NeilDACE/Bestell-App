@@ -18,11 +18,15 @@
 
 .basket {
     width: 100%;
-    min-height: 400px;
     background-color: var(--primary-color3);
     position: sticky;
     top: 10vh;
     text-align: center;
+}
+
+.basket-content {
+  max-height: 400px;
+  overflow: auto;
 }
 
 .basket h2 {

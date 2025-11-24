@@ -1,3 +1,5 @@
+let basket = [];
+
 let burgers = [
   {
     name: "Cheeseburger",
