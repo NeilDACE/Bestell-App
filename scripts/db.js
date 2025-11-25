@@ -1,10 +1,10 @@
 let basket = [];
-let burgersKey = "burger";
-let sideDishesKey = "sideDish";
-let drinksKey = "drink";
-let basketKey = "basket";
+const burgersKey = "burger";
+const sideDishesKey = "sideDish";
+const drinksKey = "drink";
+const basketKey = "basket";
 
-let burgers = [
+const burgers = [
   {
     name: "Cheeseburger",
     price: 11.50,
@@ -49,7 +49,7 @@ let burgers = [
   }
 ];
 
-let sideDishes = [
+const sideDishes = [
   {
     name: "Pommes Frites",
     price: 4.50,
@@ -88,7 +88,7 @@ let sideDishes = [
   }
 ];
 
-let drinks = [
+const drinks = [
   {
     name: "Coca-Cola 0,33l",
     price: 2.80,
@@ -126,5 +126,11 @@ let drinks = [
     qty: 1
   }
 ];
+
+const dishesArray = {
+    burger: burgers,
+    sideDish: sideDishes,
+    drink: drinks,
+  };
 
 

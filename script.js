@@ -2,7 +2,7 @@
 // Globals & Setup
 // =======================
 
-// Basket array and delivery flag
+// delivery flag and helper Object
 let delivery = true;
 
 // Delivery toggle button reference
@@ -72,6 +72,7 @@ function renderBasket() {
   }
   subTotal();
   total();
+  getBasketNum();
   document.getElementById("orderInfo").innerHTML = "";
 }
 
@@ -80,35 +81,23 @@ function renderBasket() {
 // =======================
 
 // Loads text content (name, description, qty) depending on category
-function loadContentTemplate(index, key, contentNameId, arr) {
+
+function loadContentTemplate(index, key, contentNameId, objectTitleKey) {
   let content = document.getElementById(contentNameId + key + index);
-  if (key === "burger") {
-    content.innerHTML = burgers[index][arr];
-  }
-  if (key === "sideDish") {
-    content.innerHTML = sideDishes[index][arr];
-  }
-  if (key === "drink") {
-    content.innerHTML = drinks[index][arr];
-  }
-  if (key === "basket") {
-    content.innerHTML = basket[index][arr];
-  }
+  const correctObject = key === "basket" ? basket : dishesArray[key];
+  content.innerHTML = correctObject[index][objectTitleKey];
 }
 
 // Returns formatted price for the given category
+
 function formattedPrice(index, key) {
-  if (key === "burger") {
-    return formatter.format(burgers[index].price);
-  }
-  if (key === "sideDish") {
-    return formatter.format(sideDishes[index].price);
-  }
-  if (key === "drink") {
-    return formatter.format(drinks[index].price);
-  }
+  const correctObject = dishesArray[key];
   if (key === "basket") {
-    return formatter.format(basket[index].price * basket[index].qty);
+    return formatter.format(
+      basket[index].price * basket[index].qty
+    );
+  } else {
+    return formatter.format(correctObject[index].price);
   }
 }
 
@@ -124,8 +113,7 @@ function loadPrice(index, key, contentNameId) {
 
 // Adds an item to the basket or increases qty if already present
 function addToBasket(index, key) {
-  const arrays = { burger: burgers, sideDish: sideDishes, drink: drinks };
-  const item = arrays[key][index];
+  const item = dishesArray[key][index];
   const existing = basket.find((b) => b.name === item.name);
   if (existing) {
     existing.qty++;
@@ -267,4 +255,14 @@ function toggleMobileBasket() {
   basketContent.classList.toggle("show-content");
   footer.classList.toggle("hide-content");
   main.classList.toggle("main-basket-size");
+}
+
+// =======================
+// Show Dishes from the basket (mobile)
+// =======================
+
+// how much dishes are in the basket
+function getBasketNum() {
+  let BasketNumContainer = document.getElementById("numDishesContainer");
+  BasketNumContainer.innerHTML = basket.length === 0 ? "" : "x" + basket.length + " ";
 }
