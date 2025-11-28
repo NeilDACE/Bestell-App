@@ -1,7 +1,3 @@
-Gerne, hier ist die vorgeschlagene **README.md** in englischer Sprache.
-
------
-
 ## Ordering App
 
 🛒 **A Simple Web-Based Ordering Application**
