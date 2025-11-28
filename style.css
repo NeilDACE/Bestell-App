@@ -103,6 +103,22 @@
   display: flex !important;
 }
 
+.main-container-about-us {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  padding: 24px;
+}
+
+.main-container-privacy {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  padding: 24px;
+}
+
 @media (max-width: 850px) {
   .description {
     margin-top: 24px;

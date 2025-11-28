@@ -93,9 +93,7 @@ function loadContentTemplate(index, key, contentNameId, objectTitleKey) {
 function formattedPrice(index, key) {
   const correctObject = dishesArray[key];
   if (key === "basket") {
-    return formatter.format(
-      basket[index].price * basket[index].qty
-    );
+    return formatter.format(basket[index].price * basket[index].qty);
   } else {
     return formatter.format(correctObject[index].price);
   }
@@ -185,18 +183,20 @@ function total() {
 // =======================
 
 // Handles switching between delivery and pickup
-toggleButton.addEventListener("click", function () {
-  if (toggleButton.innerText === "Liefern") {
-    toggleButton.innerText = "Abholen";
-    document.getElementById("deliveryCost").innerHTML = "-";
-    delivery = false;
-  } else {
-    toggleButton.innerText = "Liefern";
-    document.getElementById("deliveryCost").innerHTML = "5€";
-    delivery = true;
-  }
-  renderBasket();
-});
+if (toggleButton) {
+  toggleButton.addEventListener("click", function () {
+    if (toggleButton.innerText === "Liefern") {
+      toggleButton.innerText = "Abholen";
+      document.getElementById("deliveryCost").innerHTML = "-";
+      delivery = false;
+    } else {
+      toggleButton.innerText = "Liefern";
+      document.getElementById("deliveryCost").innerHTML = "5€";
+      delivery = true;
+    }
+    renderBasket();
+  });
+}
 
 // =======================
 // Order
@@ -264,5 +264,6 @@ function toggleMobileBasket() {
 // how much dishes are in the basket
 function getBasketNum() {
   let BasketNumContainer = document.getElementById("numDishesContainer");
-  BasketNumContainer.innerHTML = basket.length === 0 ? "" : "x" + basket.length + " ";
+  BasketNumContainer.innerHTML =
+    basket.length === 0 ? "" : "x" + basket.length + " ";
 }
